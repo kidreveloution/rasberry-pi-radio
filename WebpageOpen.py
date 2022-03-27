@@ -1,6 +1,6 @@
 #http://n0e.radiojar.com/8s5u5tpdtwzuv?rj-ttl=5&rj-tok=AAABf8pZIfoAj4LUj-sLh_n6Vw
 import webbrowser
-
+import os
 
 
 def playQuranKareem():
@@ -24,3 +24,5 @@ def playRef3at():
 def playAbdelBaset():
     webbrowser.open('https://server03.quran.com.kw:7000/;*.mp3') # PLay Shiekh Abdel Baset
 
+def stop():
+    os.system("taskkill /im firefox.exe /f")
