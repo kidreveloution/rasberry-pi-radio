@@ -3,9 +3,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from WebpageOpen import  *
+from APIFunctions import changeTrack, getTrack
 
 app = FastAPI()
+
+currentTrack = 0
 
 origins = [
     "file:///C:/Users/aladdin/Desktop/ahlan-salati/FrontEnd/Testing.html"
@@ -26,37 +28,54 @@ app.add_middleware(
 @app.get("/")
 async def read_item():
     return ("Sucsuess")
+
 @app.get("/1")
 async def text1():
-    playQuranKareem()
+    changeTrack(1)
     return ("Sucsuess")
+
 @app.get("/2")
 async def text2():
-    playMahmoudAbdElHakam()
+    changeTrack(2)
+
     return ("Sucsuess")
+
 @app.get("/3")
 async def text3():
-    playSharawi()
+    changeTrack(3)
     return ("Sucsuess")
+
 @app.get("/4")
 async def text4():
-    playGaber()
+    changeTrack(4)
+
     return ("Sucsuess")
+
 @app.get("/5")
 async def text5():
-    playHosary()
+    changeTrack(5)
+
     return ("Sucsuess")
+
 @app.get("/6")
 async def text6():
-    playRef3at()
+    changeTrack(6)
+
     return ("Sucsuess")
+
 @app.get("/7")
 async def text7():
-    playAbdelBaset()
+    changeTrack(7)
+
     return ("Sucsuess")
+
+@app.get("/currentTrack")
+async def currentTrackNum():
+    return(getTrack())
+
 @app.get("/stop")
 async def stopAudio():
-    stop()
+    changeTrack(0)
     return ("Sucsuess")
 
 
