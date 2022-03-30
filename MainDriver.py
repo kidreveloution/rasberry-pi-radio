@@ -5,7 +5,6 @@ import subprocess
 import requests
 import signal
 
-import asyncio
 
 async def currentlyPlaying(num):
     if num == 1:
@@ -29,12 +28,12 @@ async def kill(self):
 
 async def mainFunction():
     killCommand = False
+    tempTrack = 1
     while killCommand == False:
-        f1 = loop.create_task(mainFunction())
-        await asyncio.wait([f1, f2])
+        
         response = requests.get("http://127.0.0.1:8000/currentTrack")
         currentTrack = int(response.text)
-        print(currentTrack)
+        tempTrack = currentTrack
         if currentTrack == 0:
             kill(self)
         elif currentTrack == 1:
@@ -60,7 +59,3 @@ async def mainFunction():
             playAbdelBaset()
         elif currentTrack == 44:
             kill()
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(mainFunction())
-loop.close()
