@@ -26,17 +26,17 @@ def testKill(pid):
     
 
 def ApiChecker(pidNum):
-    response = requests.get("http://127.0.0.1:8000/currentTrack")
-    currentTrack = int(response.text)
-    tempTrack = currentTrack
+    tempTrack = 0
     while True:
         response = requests.get("http://127.0.0.1:8000/currentTrack")
         currentTrack = int(response.text)
         time.sleep(1)
         print(currentTrack)
         if tempTrack != currentTrack:
+            tempTrack = currentTrack
             try:
                 subprocess.check_output("Taskkill /PID %d /F" % pidNum)
+                print("Task Terminated")
             except:
                 print('Fucker')
             
@@ -45,34 +45,33 @@ def ApiChecker(pidNum):
     
 
 def playFunction(pidQue):
-    pidQue.put(os.getpid())
+    pidQue.put(os.getppid())
     #os.kill(os.getpid(), signal.SIGTERM)
-    print(os.getpid())
+    while True:
+        time.sleep(1)
+        print("Getting it done")
+    
+   # print(os.getpid())
     #print(type(os.getpid()))
-    currentlyPlaying(2)
+    #currentlyPlaying(2)
     
 
 
 if __name__ == '__main__':
-    #info('main line')
     pidQue = Queue()
 
     p2 = Process(target=playFunction,args=(pidQue,))
 
     p2.start()
 
-    #os.kill(pidNum, signal.SIGTERM)
     pidNum = pidQue.get()
     p1 = Process(target=ApiChecker,args=(pidNum,))
     p1.start()
 
-    #p2.join()
     p1.join()    
 
     p2.join()
-    #testKill(pidNum)
-
-    #os.kill(pidNum, signal.SIGTERM)
+\
 
     
 
