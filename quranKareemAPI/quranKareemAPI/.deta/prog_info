@@ -1,1 +1,0 @@
-{"id":"73c57386-d51f-4cb5-ae97-6b5b0e884f56","space":17032,"runtime":"python3.9","name":"quranKareemAPI","path":"t06t4i","project":"b06dkyg3","account":"144798365827","region":"us-east-1","deps":["flask","fastapi"],"envs":null,"public":true,"log_level":"debug","cron":""}
