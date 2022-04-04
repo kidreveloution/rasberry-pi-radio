@@ -11,19 +11,18 @@ from radioFile import *
 
 def ApiChecker():
     time.sleep(1)
-    tempTrack = 1
+    tempTrack = 44
     while True:
-        #response = requests.get("https://t06t4i.deta.dev/currentTrack")
-        currentTrack = 2
+        response = requests.get("https://t06t4i.deta.dev/currentTrack")
+        currentTrack = int(response.text)
         time.sleep(1)
-        #intTrack = int(currentTrack)
         print(currentTrack)
 
         if tempTrack != currentTrack:
             tempTrack = currentTrack
             
             subprocess.Popen(['pkill', '-9', 'ffplay'])
-            subprocess.Popen(['python', 'radioPlay.py', str(tempTrack)])
+            subprocess.Popen(['python', 'radioFile.py', str(tempTrack)])
 
 
 
