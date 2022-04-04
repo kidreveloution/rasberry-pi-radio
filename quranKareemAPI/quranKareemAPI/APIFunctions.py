@@ -1,11 +1,11 @@
 
 
 def changeTrack(num): #Quran Kareem Radio
-    fileWrite = open("currentTrack.txt", "w")
+    fileWrite = open("tmp/currentTrack.txt", "w")
     fileWrite.write(str(num))
 
 def getTrack():
-    fileRead = open("currentTrack.txt", "r")
+    fileRead = open("tmp/currentTrack.txt", "r")
     currentTrack = int(fileRead.read()) 
     return currentTrack
 

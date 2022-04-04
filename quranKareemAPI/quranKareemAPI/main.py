@@ -66,9 +66,41 @@ async def text6():
 @app.get("/7")
 async def text7():
     changeTrack(7)
-
+    return ("Sucsuess")
+@app.get("/8")
+async def text7():
+    changeTrack(8)
     return ("Sucsuess")
 
+
+@app.get("/9")
+async def text7():
+    changeTrack(9)
+    return ("Sucsuess")
+
+
+@app.get("/10")
+async def text7():
+    changeTrack(10)
+    return ("Sucsuess")
+
+
+@app.get("/11")
+async def text7():
+    changeTrack(11)
+    return ("Sucsuess")
+
+
+@app.get("/12")
+async def text7():
+    changeTrack(12)
+    return ("Sucsuess")
+
+
+@app.get("/13")
+async def text7():
+    changeTrack(13)
+    return ("Sucsuess")
 @app.get("/currentTrack")
 async def currentTrackNum():
     return(getTrack())
