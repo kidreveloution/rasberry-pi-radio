@@ -6,7 +6,7 @@ def currentlyPlaying(num):
     if num == 1: # Quran Kareem Radio
         musicPlay = subprocess.call(
             ["ffplay", "-nodisp", "http://stream.radiojar.com/8s5u5tpdtwzuv"])
-    elif num == 2:#Al Sha3arawi, not working
+    elif num == 2:#Al Sha3arawi
         musicPlay = subprocess.call(
             ["ffplay", "-nodisp", "http://livstream.xyz:8090/radio.mp3"])
     elif num == 3: #Al Housary Radio

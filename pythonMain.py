@@ -10,7 +10,6 @@ from radioFile import *
     
 
 def ApiChecker():
-    time.sleep(1)
     tempTrack = 44
     while True:
         response = requests.get("https://t06t4i.deta.dev/currentTrack")
